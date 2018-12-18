@@ -24,6 +24,8 @@ pipeline {
     stage('Second stage') {
       steps {
         container('s2i') {
+          sh "make version"
+          sh "helm upgrade --install --wait --namespace $RELEASE_NAMESPACE $APP_NAME ."
         }
       }
     }
