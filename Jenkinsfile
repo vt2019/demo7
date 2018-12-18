@@ -18,6 +18,7 @@ pipeline {
            sh "s2i build . pingworks/demo-builder:2 $IMAGE_NAME:$RELEASE_VERSION"
            sh "docker images"
            sh "docker push $IMAGE_NAME:$RELEASE_VERSION"
+           
         }
       }
     }
